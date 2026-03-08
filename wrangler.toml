@@ -1,0 +1,19 @@
+name = "keepalive-worker"
+main = "src/index.ts"
+compatibility_date = "2026-03-08"
+
+# 默认每 5 分钟执行一次；按需修改
+crons = ["*/5 * * * *"]
+
+[vars]
+# 多个 URL：支持 JSON 数组、逗号分隔、或按行分隔
+URLS = "https://example.com/health,https://example.org/ping"
+
+# 单次请求超时（毫秒）
+TIMEOUT_MS = "8000"
+
+# 并发上限（整数）
+CONCURRENCY = "3"
+
+# 手动触发 /do 的 token（建议部署时用 wrangler secret）
+TOKEN = "change-me"
